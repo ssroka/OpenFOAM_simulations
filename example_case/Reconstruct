@@ -1,0 +1,21 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+
+#runParallel redistributePar -reconstruct -parallel -constant -withZero
+if [ "$#" -ne 1 ]
+then
+reconstructParMesh -constant 
+reconstructPar 
+# writes volume field to reconstructed time point
+postProcess -func writeCellVolumes
+postProcess -func writeCellCentres
+else
+reconstructParMesh -constant -time $1
+reconstructPar -time $1
+# writes volume field to reconstructed time point
+postProcess -func writeCellVolumes
+postProcess -func writeCellCentres
+foamToVTK -time $1
+fi

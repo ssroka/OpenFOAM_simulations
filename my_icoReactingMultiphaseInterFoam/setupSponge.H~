@@ -1,0 +1,7 @@
+// ************************************************************************* //
+const vectorField& C = mesh_.C();
+cellSet selectedCells(mesh_,cellSetName_);
+labelList spongeCells = selectedCells.toc();
+vectorField& SpongeU = eqn.source();
+const volVectorField& U = eqn.psi();
+// ************************************************************************* //

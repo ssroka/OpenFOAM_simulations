@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1806                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "defineGlobalVars"
+halfHeight #calc "($Lz+$z0)*0.5";
+
+defaultFieldValues
+(
+    volScalarFieldValue air.gas   0.9773
+    volScalarFieldValue alpha.gas   0.0227
+    volScalarFieldValue alpha.liquid 0.0
+    volScalarFieldValue T $Ta
+    volVectorFieldValue U ($U10 0.0 0.0)
+    volVectorFieldValue SourceU ($SU 0.0 0.0)
+    volVectorFieldValue SpongeU (0.0 0.0 0.0)
+    volScalarFieldValue cellDist 0
+);
+
+regions
+(
+    boxToCell
+    {
+        box ($x0 $y0 $z0) ($Lx $Ly $halfHeight) ;
+        fieldValues
+        (
+            volScalarFieldValue air.gas   0.001
+            volScalarFieldValue alpha.liquid 1.0
+            volScalarFieldValue alpha.gas    0.0
+            volScalarFieldValue T $Tw
+            volVectorFieldValue U ($U10 0.0 0.0)
+            //volVectorFieldValue U (0.0 0.0 0.0)
+            volVectorFieldValue SourceU (0.0 0.0 0.0)
+        );
+    }
+    boxToCell
+    {
+        box ($x0 $y0 -1.0) ($Lx $Ly -0.9) ;
+        fieldValues
+        (
+            volVectorFieldValue SpongeU ($Sp $Sp $Sp)
+        );
+    }
+//    boxToCell
+//    {
+//        box ($x0 $y0 -0.9) ($Lx $Ly 0.0) ;
+//        fieldValues
+//        (
+//            volVectorFieldValue SpongeU (0.0 0.0 0.0)
+//        );
+//    }
+    
+     #include "manualAssign"
+);
+
+// ************************************************************************* //

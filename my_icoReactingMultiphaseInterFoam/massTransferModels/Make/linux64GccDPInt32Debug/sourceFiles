@@ -1,0 +1,6 @@
+SOURCE = \
+interfaceCompositionModel/interfaceCompositionModel.C \
+interfaceCompositionModel/interfaceCompositionModelNew.C \
+InterfaceCompositionModel/InterfaceCompositionModels.C \
+
+# sources

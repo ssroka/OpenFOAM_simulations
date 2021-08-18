@@ -1,0 +1,322 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+restore0Dir
+
+
+runApplication blockMesh
+
+#runApplication setSet -batch top6.setSet 
+#rm -f log.setSet 
+ runApplication decomposePar 
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# rm -f log.setSet 
+
+# initialize all sets
+source ./runSet 
+rm -f log.setSet 
+
+for i in {1..5}
+do
+source ./runRefine "xp1"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+source ./runRefine "xm1"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+done
+
+echo "-------1-------"
+
+for i in {1..4}
+do
+source ./runRefine "xp2"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+source ./runRefine "xm2"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+done
+
+echo "-------2-------"
+
+for i in {1..3}
+do
+source ./runRefine "xp3"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+source ./runRefine "xm3"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+done
+
+echo "-------3-------"
+
+for i in {1..2}
+do
+source ./runRefine "xp4"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+source ./runRefine "xm4"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+done
+
+echo "-------4-------"
+
+for i in {1..2}
+do
+source ./runRefine "yp1"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+source ./runRefine "ym1"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+done
+
+echo "-------y1-------"
+
+source ./runRefine "yp2"
+source ./runSet 
+rm -f log.setSet log.refineMesh
+source ./runRefine "ym2"
+source ./runSet 
+
+echo "-------y2-------"
+
+runParallel setFields
+runParallel $(getApplication)
+
+
+
+
+
+# # refine x p1 5 times
+# runParallel refineMesh -dict system/refineMeshDict_xp1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# # 
+# # 
+# # # refine x m1 5 times
+# runParallel refineMesh -dict system/refineMeshDict_xm1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# # 
+# # refine x p2 4 times
+# #
+# runParallel refineMesh -dict system/refineMeshDict_xp2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# # 
+# # refine x m2 4 times
+# #
+# runParallel refineMesh -dict system/refineMeshDict_xm2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# # 
+# # refine x p3 3 times
+# #
+# runParallel refineMesh -dict system/refineMeshDict_xp3 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp3 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp3 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# #
+# # refine x m3 3 times
+# #
+# runParallel refineMesh -dict system/refineMeshDict_xm3 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm3 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm3 -overwrite
+# runParallel setSet -batch top6.setSet 
+# rm -f log.setSet log.refineMesh
+# # 
+# # refine x p4 2 times
+# #
+# runParallel refineMesh -dict system/refineMeshDict_xp4 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xp4 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# #
+# # refine x m4 2 times
+# #
+# runParallel refineMesh -dict system/refineMeshDict_xm4 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_xm4 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# # 
+# # refine y p1 2 times
+# runParallel refineMesh -dict system/refineMeshDict_yp1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_yp1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# 
+# # refine y m1 2 times
+# runParallel refineMesh -dict system/refineMeshDict_ym1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# runParallel refineMesh -dict system/refineMeshDict_ym1 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# # 
+# # refine y p2 1 times
+# runParallel refineMesh -dict system/refineMeshDict_yp2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# rm -f log.setSet log.refineMesh
+# 
+# # refine y m2 1 times
+# runParallel refineMesh -dict system/refineMeshDict_ym2 -overwrite
+# runParallel setSet -batch top6.setSet 
+# cat log.setSet >> setSet_logs
+# echo "---------------" >> setSet_logs
+# cat log.refineMesh >> refineMesh_logs
+# echo "---------------" >> refineMesh_logs
+# 
+# 
+# # runApplication setFields
+# runParallel setFields
+# runParallel $(getApplication)
+# #  
+#  
+#runApplication setSet -batch top6.setSet 
+#rm -f log.setSet log.refineMesh
+## refine c0
+#runApplication refineMesh c0 -overwrite
+#runApplication setSet -batch top6.setSet 
+#rm -f log.setSet log.refineHexMesh
+## refine c0
+#runApplication refineHexMesh c0 -overwrite
+#runApplication setSet -batch top6.setSet 
+#
+#runApplication $(getApplication)
+
+#------------------------------------------------------------------------------
+
+# if you ever need to remake the cellDist file in constant
+# edit decomposeParDict to
+# method scotch
+# then 
+# ./Allclean
+# blockMesh
+# decomposePar -cellDist
+# rm -rf processor*
+# setFields
+# python prepDecomp.py
+# EDIT decomposeParDict method back to manual
+# decomposePar

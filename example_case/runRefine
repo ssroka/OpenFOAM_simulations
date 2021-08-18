@@ -1,0 +1,9 @@
+
+runParallel refineMesh -dict system/refineMeshDict_$1 -overwrite
+
+
+echo "--------------- $1 ---------------" >> refineMesh_logs
+cat log.refineMesh >> refineMesh_logs
+echo "----------------------------------" >> refineMesh_logs
+
+

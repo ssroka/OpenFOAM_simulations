@@ -1,0 +1,35 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+if ls log.* 1> /dev/null 2>&1; then
+	echo "remove log files since this will remove all processor directories"
+elif ls processor* 1> /dev/null 2>&1; then
+ 
+	echo "remove processor directories since this will remove all processor directories"
+else
+
+# change write format to ascii for the cellDist only
+sed -i "s/^writeFormat.*/writeFormat    ascii; \/\/ binary, ascii/g"  system/controlDict
+
+restore0Dir
+
+runApplication blockMesh
+
+# set decomposePar method to simple
+sed -i "s/^method.*/method     simple;/g"  system/decomposeParDict
+
+runApplication decomposePar -cellDist
+rm -rf processor*
+runApplication setFields
+python prepDecomp.py
+
+# set decomposePar method to manual
+sed -i "s/^method.*/method     manual;/g"  system/decomposeParDict
+
+# change write format to ascii for the cellDist only
+sed -i "s/^writeFormat.*/writeFormat    binary; \/\/ binary, ascii/g"  system/controlDict
+
+./Allclean
+
+fi

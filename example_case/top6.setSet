@@ -1,0 +1,20 @@
+cellSet top_6 clear
+cellSet top_6 add boxToCell (-0.5 -0.01  0.9) (0.5 0.01  1.0)
+cellSet bot_6 clear
+cellSet bot_6 add boxToCell (-0.5 -0.01  -1.0) (0.5 0.01  -0.9)
+cellSet p1 clear
+cellSet p1 add boxToCell (-0.5 -0.01 0.0) (0.5 0.01 0.05)
+cellSet m1 clear
+cellSet m1 add boxToCell (-0.5 -0.01 -0.05) (0.5 0.01 0.0)
+cellSet p2 clear
+cellSet p2 add boxToCell (-0.5 -0.01 0.05) (0.5 0.01 0.15)
+cellSet m2 clear
+cellSet m2 add boxToCell (-0.5 -0.01 -0.15) (0.5 0.01 -0.05)
+cellSet p3 clear
+cellSet p3 add boxToCell (-0.5 -0.01 0.15) (0.5 0.01 0.35)
+cellSet m3 clear
+cellSet m3 add boxToCell (-0.5 -0.01 -0.35) (0.5 0.01 -0.15)
+cellSet p4 clear
+cellSet p4 add boxToCell (-0.5 -0.01 0.35) (0.5 0.01 1.0)
+cellSet m4 clear
+cellSet m4 add boxToCell (-0.5 -0.01 -1.0) (0.5 0.01 -0.35)

@@ -1,0 +1,7 @@
+
+runParallel setSet -batch top6.setSet 
+
+
+echo "--------------- $1---------------" >> setSet_logs
+cat log.setSet >> setSet_logs
+echo "----------------------------------" >> setSet_logs

@@ -1,0 +1,134 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "defineGlobalVars"
+
+options
+{
+//   momentumSource1
+//    {
+//        type            vectorCodedSource;
+//        active          on; 
+//
+//        vectorCodedSourceCoeffs
+//        {
+//            selectionMode   cellSet;
+//            cellSet         top_6;
+//
+//            fields          (U);
+//            name            sourceWind;
+//
+//            codeInclude
+//            #{
+//
+//            #};
+//
+//            codeCorrect
+//            #{
+//                Pout<< "**codeCorrect**" << endl;
+//            #};
+//
+//            codeAddSup
+//            #{
+//                const vectorField& C = mesh_.C();
+//                cellSet selectedCells(mesh_,cellSetName_);
+//                labelList cells = selectedCells.toc();
+//                vectorField& uSource = eqn.source();
+//                const volVectorField& U = eqn.psi();
+//                forAll(cells,i)
+//                {
+//                     uSource[cells_[i]]  += -0.000001*(vector(60.0, 0.0, 0.0) - U[cells_[i]]); 
+//                     //uSource[cells_[i]]  += -0.000001*(vector(2.92, 0.0, 0.0) - U[cells_[i]]); 
+////                   Pout<< C[cells_[i]][2] << endl;
+//                }
+//                Pout<< "**codeAddSup**" << endl;
+//            #};
+//
+//            codeSetValue
+//            #{
+//                Pout<< "**codeSetValue**" << endl;
+//            #};
+//
+//            // Dummy entry. Make dependent on above to trigger recompilation
+//            code
+//            #{
+//                $codeInclude
+//                $codeCorrect
+//                $codeAddSup
+//                $codeSetValue
+//            #};
+//        }
+//
+//   }
+   momentumSource2
+    {
+        type            vectorCodedSource;
+        active          on; 
+
+        vectorCodedSourceCoeffs
+        {
+            selectionMode   cellSet;
+            cellSet         bot_6;
+
+            fields          (U);
+            name            sourceSink;
+
+            codeInclude
+            #{
+
+            #};
+
+            codeCorrect
+            #{
+                Pout<< "**codeCorrect**" << endl;
+            #};
+
+            codeAddSup
+            #{
+                const vectorField& C = mesh_.C();
+                cellSet selectedCells(mesh_,cellSetName_);
+                labelList cells = selectedCells.toc();
+                vectorField& uSource = eqn.source();
+                const volVectorField& U = eqn.psi();
+                forAll(cells,i)
+                {
+                   uSource[cells_[i]]  += -0.001*(vector(0.0, 0.0, 0.0) - U[cells_[i]]); 
+//                   Pout<< C[cells_[i]][2] << endl;
+                }
+                Pout<< "**codeAddSup**" << endl;
+            #};
+
+            codeSetValue
+            #{
+                Pout<< "**codeSetValue**" << endl;
+            #};
+
+            // Dummy entry. Make dependent on above to trigger recompilation
+            code
+            #{
+                $codeInclude
+                $codeCorrect
+                $codeAddSup
+                $codeSetValue
+            #};
+        }
+
+   }
+}
+
+
+// ************************************************************************* //

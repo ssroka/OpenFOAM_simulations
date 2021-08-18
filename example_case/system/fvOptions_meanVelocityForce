@@ -1,0 +1,53 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "defineGlobalVars"
+
+options
+{
+   momentumSource1
+    {
+        type            meanVelocityForce;
+
+        meanVelocityForceCoeffs
+        {
+            selectionMode   cellSet;
+            cellSet         top_6;
+            fields          (U);
+            Ubar            (60.0 0.0 0.0);
+            relaxation      0.2;
+        }
+
+   }
+   momentumSource2
+    {
+        type            meanVelocityForce;
+
+        meanVelocityForceCoeffs
+        {
+            selectionMode   cellSet;
+            cellSet         bot_6;
+            fields          (U);
+            Ubar            (0.0001 0.0 0.0);
+            relaxation      0.2;
+        }
+
+   }
+}
+
+
+// ************************************************************************* //
