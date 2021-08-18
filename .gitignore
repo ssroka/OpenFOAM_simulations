@@ -1,0 +1,10 @@
+*.tar.gz
+*~
+*.mat
+*.zip
+*.pdf
+*.png
+*.fig
+*.err
+*.out
+

@@ -1,0 +1,111 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1806                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale   1;
+
+#include "defineGlobalVars"
+
+vertices
+(
+    ($x0   $y0   $z0)
+    ($Lx   $y0   $z0)
+    ($Lx   $Ly   $z0)
+    ($x0   $Ly   $z0)
+    ($x0   $y0   $Lz)
+    ($Lx   $y0   $Lz)
+    ($Lx   $Ly   $Lz)
+    ($x0   $Ly   $Lz)
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (25 4 370) 
+    (1     // x-direction expansion ratio
+     1     // y-direction expansion ratio
+      (
+         (0.3250  0.17567568  1)  // 50% z-dir, 5% cells, expansion = 1 
+         (0.1000  0.10810811  1)  // 50% z-dir, 5% cells, expansion = 1 
+         (0.0500  0.10810811  1)  // 40% z-dir, 22.5% cells, expansion = 1 
+         (0.0250  0.10810811  1)  // 50% z-dir, 5% cells, expansion = 1 
+         (0.0250  0.10810811  1)  // 50% z-dir, 5% cells, expansion = 1 
+         (0.0500  0.10810811  1)  // 40% z-dir, 22.5% cells, expansion = 1 
+         (0.1000  0.10810811  1)  // 50% z-dir, 5% cells, expansion = 1 
+         (0.3250  0.17567568  1)  // 50% z-dir, 5% cells, expansion = 1 
+      )
+    )
+);
+
+boundary
+(
+    bottom
+    {
+        type    wall;
+        faces
+        (
+            (0 3 2 1)
+        );
+    }
+    top
+    {
+        type    patch;
+        faces
+        (
+            (7 4 5 6)
+        );
+    }
+    left
+    {
+        type    cyclic;
+        neighbourPatch right;
+        //type    patch;
+        faces
+        (
+            (0 4 7 3)
+        );
+    }
+    right
+    {
+        type    cyclic;
+        neighbourPatch left;
+        //type    patch;
+        faces
+        (
+            (2 6 5 1)
+        );
+    }
+    front
+    {
+        type    cyclic;
+        neighbourPatch back;
+        //type    patch;
+        faces
+        (
+            (0 1 5 4)
+        );
+    }
+    back
+    {
+        type    cyclic;
+        neighbourPatch front;
+        //type    patch;
+        faces
+        (
+            (3 7 6 2)
+        );
+    }
+);
+
+// ************************************************************************* //

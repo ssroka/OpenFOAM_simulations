@@ -1,0 +1,132 @@
+
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1806                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+actions
+(
+   {
+     name top_6;
+     type cellSet;
+     action clear;
+   } 
+   {
+     name top_6;
+     type cellSet;
+     action add;
+     source boxToCell;
+     sourceInfo 
+     { 
+      box (0 0 0.045) (0.02 0.02 0.05);
+     }
+   } 
+   {
+     name bot_6;
+     type cellSet;
+     action clear;
+   } 
+   {
+     name bot_6;
+     type cellSet;
+     action add;
+     source boxToCell;
+     sourceInfo 
+     { 
+      box (0 0 0) (0.02 0.02 0.005);
+     }
+   } 
+   {
+     name c0;
+     type cellSet;
+     action clear;
+   } 
+   {
+     name c0;
+     type cellSet;
+     action add;
+     source boxToCell;
+     sourceInfo 
+     { 
+      box (0 0 0.045) (0.02 0.02 0.05);
+     }
+   } 
+   {
+     name c1;
+     type cellSet;
+     action clear;
+   } 
+   {
+     name c1;
+     type cellSet;
+     action add;
+     source boxToCell;
+     sourceInfo 
+     { 
+      box (0 0 0.01) (0.02 0.02 0.02);
+     }
+   } 
+   {
+     name c2;
+     type cellSet;
+     action clear;
+   } 
+   {
+     name c2;
+     type cellSet;
+     action add;
+     source boxToCell;
+     sourceInfo 
+     {  
+      box (0 0 0.02) (0.02 0.02 0.03);
+     }
+   } 
+   {
+     name c3;
+     type cellSet;
+     action clear;
+   } 
+   {
+     name c3;
+     type cellSet;
+     action add;
+     source boxToCell;
+     sourceInfo 
+     {
+      box (0 0 0.03) (0.02 0.02 0.04);
+     }
+   } 
+   {
+     name c4;
+     type cellSet;
+     action clear;
+   } 
+   {
+     name c4;
+     type cellSet;
+     action add;
+     source boxToCell;
+     sourceInfo 
+     { 
+      box (0 0 0.04) (0.02 0.02 0.05);
+     }
+   } 
+
+
+);
+
+
+
+
+
+// ************************************************************************* //

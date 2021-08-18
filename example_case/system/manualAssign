@@ -1,0 +1,504 @@
+// r1 id = 1
+boxToCell
+{
+     box ($x0 $y0 $z0) ($Lx $Ly $z1);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 0
+     );
+}
+// r2 id = 2
+boxToCell
+{
+     box ($x0 $y0 $z1) ($Lx $Ly $z2);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 1
+     );
+}
+// r3 id = 3
+boxToCell
+{
+     box ($x0 $y0 $z2) ($Lx $Ly $z3);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 2
+     );
+}
+// r4 id = 4
+boxToCell
+{
+     box ($x0 $y0 $z3) ($Lx $Ly $z4);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 3
+     );
+}
+// r5 id = 5
+boxToCell
+{
+     box ($x0 $y0 $z4) ($Lx $Ly $z5);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 4
+     );
+}
+// r6 id = 6
+boxToCell
+{
+     box ($x0 $y0 $z5) ($Lx $Ly $z6);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 5
+     );
+}
+// r7 id = 7
+boxToCell
+{
+     box ($x0 $y0 $z6) ($Lx $Ly $z7);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 6
+     );
+}
+// r8 id = 8
+boxToCell
+{
+     box ($x0 $y0 $z7) ($Lx $Ly $z8);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 7
+     );
+}
+// r9 id = 9
+boxToCell
+{
+     box ($x0 $y0 $z8) ($Lx $Ly $z9);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 8
+     );
+}
+// r10 id = 10
+boxToCell
+{
+     box ($x0 $y0 $z9) ($Lx $Ly $z10);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 9
+     );
+}
+// r11 id = 11
+boxToCell
+{
+     box ($x0 $y0 $z10) ($Lx $Ly $z11);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 10
+     );
+}
+// r12 id = 12
+boxToCell
+{
+     box ($x0 $y0 $z11) ($Lx $Ly $z12);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 11
+     );
+}
+// r13 id = 13
+boxToCell
+{
+     box ($x0 $y0 $z12) ($Lx $Ly $z13);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 12
+     );
+}
+// r14 id = 14
+boxToCell
+{
+     box ($x0 $y0 $z13) ($Lx $Ly $z14);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 13
+     );
+}
+// r15 id = 15
+boxToCell
+{
+     box ($x0 $y0 $z14) ($Lx $Ly $z15);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 14
+     );
+}
+// r16 id = 16
+boxToCell
+{
+     box ($x0 $y0 $z15) ($Lx $Ly $z16);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 15
+     );
+}
+// r17 id = 17
+boxToCell
+{
+     box ($x0 $y0 $z16) ($Lx $Ly $z17);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 16
+     );
+}
+// r18 id = 18
+boxToCell
+{
+     box ($x0 $y0 $z17) ($Lx $Ly $z18);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 17
+     );
+}
+// r19 id = 19
+boxToCell
+{
+     box ($x0 $y0 $z18) ($Lx $Ly $z19);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 18
+     );
+}
+// r20 id = 20
+boxToCell
+{
+     box ($x0 $y0 $z19) ($Lx $Ly $z20);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 19
+     );
+}
+// r21 id = 21
+boxToCell
+{
+     box ($x0 $y0 $z20) ($Lx $Ly $z21);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 20
+     );
+}
+// r22 id = 22
+boxToCell
+{
+     box ($x0 $y0 $z21) ($Lx $Ly $z22);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 21
+     );
+}
+// r23 id = 23
+boxToCell
+{
+     box ($x0 $y0 $z22) ($Lx $Ly $z23);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 22
+     );
+}
+// r24 id = 24
+boxToCell
+{
+     box ($x0 $y0 $z23) ($Lx $Ly $z24);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 23
+     );
+}
+// r25 id = 25
+boxToCell
+{
+     box ($x0 $y0 $z24) ($Lx $Ly $z25);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 24
+     );
+}
+// r26 id = 26
+boxToCell
+{
+     box ($x0 $y0 $z25) ($Lx $Ly $z26);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 25
+     );
+}
+// r27 id = 27
+boxToCell
+{
+     box ($x0 $y0 $z26) ($Lx $Ly $z27);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 26
+     );
+}
+// r28 id = 28
+boxToCell
+{
+     box ($x0 $y0 $z27) ($Lx $Ly $z28);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 27
+     );
+}
+// r29 id = 29
+boxToCell
+{
+     box ($x0 $y0 $z28) ($Lx $Ly $z29);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 28
+     );
+}
+// r30 id = 30
+boxToCell
+{
+     box ($x0 $y0 $z29) ($Lx $Ly $z30);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 29
+     );
+}
+// r31 id = 31
+boxToCell
+{
+     box ($x0 $y0 $z30) ($Lx $Ly $z31);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 30
+     );
+}
+// r32 id = 32
+boxToCell
+{
+     box ($x0 $y0 $z31) ($Lx $Ly $z32);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 31
+     );
+}
+// r33 id = 33
+boxToCell
+{
+     box ($x0 $y0 $z32) ($Lx $Ly $z33);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 32
+     );
+}
+// r34 id = 34
+boxToCell
+{
+     box ($x0 $y0 $z33) ($Lx $Ly $z34);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 33
+     );
+}
+// r35 id = 35
+boxToCell
+{
+     box ($x0 $y0 $z34) ($Lx $Ly $z35);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 34
+     );
+}
+// r36 id = 36
+boxToCell
+{
+     box ($x0 $y0 $z35) ($Lx $Ly $z36);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 35
+     );
+}
+// r37 id = 37
+boxToCell
+{
+     box ($x0 $y0 $z36) ($Lx $Ly $z37);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 36
+     );
+}
+// r38 id = 38
+boxToCell
+{
+     box ($x0 $y0 $z37) ($Lx $Ly $z38);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 37
+     );
+}
+// r39 id = 39
+boxToCell
+{
+     box ($x0 $y0 $z38) ($Lx $Ly $z39);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 38
+     );
+}
+// r40 id = 40
+boxToCell
+{
+     box ($x0 $y0 $z39) ($Lx $Ly $z40);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 39
+     );
+}
+// r41 id = 41
+boxToCell
+{
+     box ($x0 $y0 $z40) ($Lx $Ly $z41);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 40
+     );
+}
+// r42 id = 42
+boxToCell
+{
+     box ($x0 $y0 $z41) ($Lx $Ly $z42);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 41
+     );
+}
+// r43 id = 43
+boxToCell
+{
+     box ($x0 $y0 $z42) ($Lx $Ly $z43);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 42
+     );
+}
+// r44 id = 44
+boxToCell
+{
+     box ($x0 $y0 $z43) ($Lx $Ly $z44);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 43
+     );
+}
+// r45 id = 45
+boxToCell
+{
+     box ($x0 $y0 $z44) ($Lx $Ly $z45);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 44
+     );
+}
+// r46 id = 46
+boxToCell
+{
+     box ($x0 $y0 $z45) ($Lx $Ly $z46);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 45
+     );
+}
+// r47 id = 47
+boxToCell
+{
+     box ($x0 $y0 $z46) ($Lx $Ly $z47);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 46
+     );
+}
+// r48 id = 48
+boxToCell
+{
+     box ($x0 $y0 $z47) ($Lx $Ly $z48);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 47
+     );
+}
+// r49 id = 49
+boxToCell
+{
+     box ($x0 $y0 $z48) ($Lx $Ly $z49);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 48
+     );
+}
+// r50 id = 50
+boxToCell
+{
+     box ($x0 $y0 $z49) ($Lx $Ly $z50);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 49
+     );
+}
+// r51 id = 51
+boxToCell
+{
+     box ($x0 $y0 $z50) ($Lx $Ly $z51);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 50
+     );
+}
+// r52 id = 52
+boxToCell
+{
+     box ($x0 $y0 $z51) ($Lx $Ly $z52);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 51
+     );
+}
+// r53 id = 53
+boxToCell
+{
+     box ($x0 $y0 $z52) ($Lx $Ly $z53);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 52
+     );
+}
+// r54 id = 54
+boxToCell
+{
+     box ($x0 $y0 $z53) ($Lx $Ly $z54);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 53
+     );
+}
+// r55 id = 55
+boxToCell
+{
+     box ($x0 $y0 $z54) ($Lx $Ly $z55);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 54
+     );
+}
+// r56 id = 56
+boxToCell
+{
+     box ($x0 $y0 $z55) ($Lx $Ly $Lz);
+     fieldValues
+     (
+          volScalarFieldValue cellDist 55
+     );
+}
